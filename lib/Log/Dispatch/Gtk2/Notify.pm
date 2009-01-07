@@ -79,6 +79,44 @@ has callbacks => (
     isa => (ArrayRef[CodeRef]) | CodeRef,
 );
 
+=method new
+
+Construct a new instance. Takes a hash containing the following parameters:
+
+=over 4
+
+=item name
+
+=item min_level
+
+=item max_level
+
+=item callbacks
+
+These are documented in L<Log::Dispatch::Output>.
+
+=item title
+
+The title shown in the notification window. Defaults to the programm name. This
+parameter is required.
+
+=item app_name
+
+The application name Gtk2::Notify will be initialized with. Defaults to
+C<Log::Dispatch::Gtk2::Notify>.
+
+=item attach_to
+
+A Gtk2::Widget or Gtk2::StatusIcon the notifications will be attached to.
+
+=item icon_map
+
+A hash ref of C<Gtk2::Gdk::Pixmap>s, mapping log levels to icons.
+
+=back
+
+=cut
+
 around new => sub {
     my $orig = shift;
     my $class = shift;
