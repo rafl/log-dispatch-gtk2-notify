@@ -1,15 +1,33 @@
 package Log::Dispatch::Gtk2::Notify;
 # ABSTRACT: send log messages to a desktop notification daemon
 
+=head1 SYNOPSIS
+
+    use Log::Dispatch::Gtk2::Notify;
+
+    my $notify = Log::Dispatch::Gtk2::Notify->new(
+        name      => 'notify',
+        min_level => 'debug',
+        app_name  => 'MyApp',
+        title     => 'Important Message',
+    );
+
+    $notify->log(level => 'alert', message => 'Hello, World!');
+
+=head1 DESCRIPTION
+
+This modules allows you to send log messages to the desktop notification
+daemon.
+
+=cut
+
 use Moose;
 use MooseX::Types::Moose qw/Str HashRef ArrayRef CodeRef/;
 use Log::Dispatch::Gtk2::Notify::Types qw/
     LogLevel
-    Widget
-    StatusIcon
+    Widget     is_Widget
+    StatusIcon is_StatusIcon
     Pixbuf
-    is_Widget
-    is_StatusIcon
 /;
 use File::Basename;
 use Gtk2 -init;
