@@ -143,4 +143,11 @@ sub _build_icon_map {
 
 __PACKAGE__->meta->make_immutable;
 
+=begin Pod::Coverage
+
+BUILD
+log_message
+
+=end Pod::Coverage
+
 1;
