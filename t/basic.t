@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Exception;
 
 use Gtk2;
 
@@ -23,6 +22,7 @@ my $notify = Log::Dispatch::Gtk2::Notify->new(
 isa_ok($notify, 'Log::Dispatch::Gtk2::Notify');
 isa_ok($notify, 'Log::Dispatch::Output');
 
-lives_ok(sub {
+eval {
     $notify->log(level => 'info', message => 'success');
-}, 'test message');
+};
+ok(!$@, 'test message');
