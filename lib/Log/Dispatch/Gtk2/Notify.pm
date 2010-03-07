@@ -62,20 +62,24 @@ has icon_map => (
 );
 
 has name => (
+    is       => 'bare',
     isa      => Str,
     required => 1,
 );
 
 has min_level => (
+    is       => 'bare',
     isa      => LogLevel,
     required => 1,
 );
 
 has max_level => (
+    is  => 'bare',
     isa => LogLevel,
 );
 
 has callbacks => (
+    is  => 'bare',
     isa => (ArrayRef[CodeRef]) | CodeRef,
 );
 
