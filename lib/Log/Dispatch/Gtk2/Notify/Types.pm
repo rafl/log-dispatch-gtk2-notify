@@ -13,7 +13,7 @@ use MooseX::Types -declare => [qw/
 /];
 
 subtype LogLevel,
-    from Str,
+    as Str,
     where { Log::Dispatch->level_is_valid($_) },
     message { 'invalid log level' };
 
